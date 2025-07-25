@@ -5,7 +5,7 @@ import psycopg2
 from psycopg2.extras import RealDictCursor
 from datetime import datetime
 import os
-from typing import List, Dict, Optional, Any
+from typing import List, Dict, Optional
 
 class MarketplaceDB:
     def __init__(self):
