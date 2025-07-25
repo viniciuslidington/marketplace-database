@@ -103,19 +103,19 @@ INSERT INTO Produto_Categoria (ID_Produto, ID_Categoria) VALUES
 -- 7. ENDEREÇOS
 INSERT INTO Endereco (Rua, Numero, CEP, Estado, Cidade, Complemento, ID_Comprador) VALUES
 -- Múltiplos endereços para alguns compradores
-(6, 'Rua das Flores', '123', '01234-567', 'SP', 'São Paulo', 'Apt 101', 6),
-(6, 'Av. Paulista', '456', '01310-100', 'SP', 'São Paulo', 'Cobertura', 6),
-(7, 'Rua do Comércio', '789', '20040-020', 'RJ', 'Rio de Janeiro', null, 7),
-(7, 'Praia de Copacabana', '321', '22070-011', 'RJ', 'Rio de Janeiro', 'Frente ao mar', 7),
-(8, 'Rua da Paz', '654', '30112-000', 'MG', 'Belo Horizonte', null, 8),
-(8, 'Av. Afonso Pena', '987', '30130-002', 'MG', 'Belo Horizonte', 'Sala 205', 8),
-(9, 'Rua dos Sonhos', '147', '80010-130', 'PR', 'Curitiba', null, 9),
-(10, 'Av. Beira Mar', '258', '88010-400', 'SC', 'Florianópolis', null, 10),
-(11, 'Rua Central', '369', '70040-010', 'DF', 'Brasília', 'Bloco A', 11),
-(12, 'Rua da Liberdade', '741', '01503-001', 'SP', 'São Paulo', null, 12),
-(13, 'Av. Boa Viagem', '852', '51011-000', 'PE', 'Recife', 'Apt 301', 13),
-(14, 'Rua do Porto', '963', '40070-110', 'BA', 'Salvador', null, 14),
-(15, 'Av. Amazonas', '159', '69020-100', 'AM', 'Manaus', null, 15);
+('Rua das Flores', '123', '01234-567', 'SP', 'São Paulo', 'Apt 101', 6),
+('Av. Paulista', '456', '01310-100', 'SP', 'São Paulo', 'Cobertura', 6),
+('Rua do Comércio', '789', '20040-020', 'RJ', 'Rio de Janeiro', null, 7),
+('Praia de Copacabana', '321', '22070-011', 'RJ', 'Rio de Janeiro', 'Frente ao mar', 7),
+('Rua da Paz', '654', '30112-000', 'MG', 'Belo Horizonte', null, 8),
+('Av. Afonso Pena', '987', '30130-002', 'MG', 'Belo Horizonte', 'Sala 205', 8),
+('Rua dos Sonhos', '147', '80010-130', 'PR', 'Curitiba', null, 9),
+('Av. Beira Mar', '258', '88010-400', 'SC', 'Florianópolis', null, 10),
+('Rua Central', '369', '70040-010', 'DF', 'Brasília', 'Bloco A', 11),
+('Rua da Liberdade', '741', '01503-001', 'SP', 'São Paulo', null, 12),
+('Av. Boa Viagem', '852', '51011-000', 'PE', 'Recife', 'Apt 301', 13),
+('Rua do Porto', '963', '40070-110', 'BA', 'Salvador', null, 14),
+('Av. Amazonas', '159', '69020-100', 'AM', 'Manaus', null, 15);
 
 -- 8. CARTÕES
 INSERT INTO Cartao (Nome, Numero, Bandeira, Validade) VALUES
