@@ -6,7 +6,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import List, Dict, Optional
 import uvicorn
-from database import MarketplaceDB
+from .database import MarketplaceDB
 
 # Modelos Pydantic para validação de dados
 class ProdutoFiltro(BaseModel):
