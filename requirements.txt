@@ -1,0 +1,21 @@
+# Marketplace Database - Dependências Python
+
+# FastAPI e servidor
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+
+# Banco de dados PostgreSQL
+psycopg2-binary==2.9.9
+
+# Validação de dados
+pydantic==2.5.0
+
+# CORS middleware (já incluído no FastAPI)
+# python-multipart==0.0.6  # Para upload de arquivos se necessário
+
+# Utilitários
+python-dotenv==1.0.0
+
+# Para desenvolvimento/testes (opcional)
+# pytest==7.4.3
+# httpx==0.25.2

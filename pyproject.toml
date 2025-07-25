@@ -1,0 +1,13 @@
+[project]
+name = "marketplace-database"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi==0.104.1",
+    "psycopg2-binary==2.9.9",
+    "pydantic==2.5.0",
+    "python-dotenv==1.0.0",
+    "uvicorn[standard]==0.24.0",
+]
