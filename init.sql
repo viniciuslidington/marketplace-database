@@ -63,7 +63,8 @@ CREATE TABLE Cartao (
     Nome VARCHAR(100),
     Numero VARCHAR(20),
     Bandeira VARCHAR(50),
-    Validade DATE
+    Validade DATE,
+    ID_Comprador INTEGER REFERENCES Comprador(ID_Usuario)
 );
 
 CREATE TABLE PagamentoCartao (
@@ -93,8 +94,8 @@ CREATE TABLE Pedido (
 );
 
 CREATE TABLE ItemDoPedido (
-    ID_Pedido INTEGER REFERENCES Pedido(ID_Pedido),
     ID_Produto INTEGER REFERENCES Produto(ID_Produto),
+    ID_Pedido INTEGER REFERENCES Pedido(ID_Pedido),
     Quantidade INTEGER NOT NULL,
     PrecoNaCompra NUMERIC(10, 2) NOT NULL,
     PRIMARY KEY (ID_Pedido, ID_Produto)
@@ -102,9 +103,8 @@ CREATE TABLE ItemDoPedido (
 
 CREATE TABLE Avaliacao (
     ID_Avaliacao SERIAL PRIMARY KEY,
-    Nota INTEGER CHECK (Nota >= 0 AND Nota <= 5),
     Comentario TEXT,
+    Nota INTEGER CHECK (Nota >= 0 AND Nota <= 5),
     Data DATE NOT NULL,
-    ID_Produto INTEGER REFERENCES Produto(ID_Produto),
-    ID_Comprador INTEGER REFERENCES Comprador(ID_Usuario)
+    ID_Pedido INTEGER REFERENCES Pedido(ID_Pedido)
 );

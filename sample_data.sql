@@ -118,55 +118,71 @@ INSERT INTO Endereco (Rua, Numero, CEP, Estado, Cidade, Complemento, ID_Comprado
 ('Av. Amazonas', '159', '69020-100', 'AM', 'Manaus', null, 15);
 
 -- 8. CARTÕES
-INSERT INTO Cartao (Nome, Numero, Bandeira, Validade) VALUES
-('Lucas Almeida', '1234 5678 9012 3456', 'Visa', '2027-12-31'),
-('Juliana Souza', '2345 6789 0123 4567', 'Mastercard', '2028-06-30'),
-('Rafael Martins', '3456 7890 1234 5678', 'Visa', '2026-09-30'),
-('Amanda Lima', '4567 8901 2345 6789', 'Elo', '2027-03-31'),
-('Bruno Pereira', '5678 9012 3456 7890', 'Mastercard', '2028-11-30');
+INSERT INTO Cartao (Nome, Numero, Bandeira, Validade, ID_Comprador) VALUES
+('Lucas Almeida', '1234 5678 9012 3456', 'Visa', '2027-12-31', 6),
+('Juliana Souza', '2345 6789 0123 4567', 'Mastercard', '2028-06-30', 7),
+('Rafael Martins', '3456 7890 1234 5678', 'Visa', '2026-09-30', 8),
+('Amanda Lima', '4567 8901 2345 6789', 'Elo', '2027-03-31', 9),
+('Bruno Pereira', '5678 9012 3456 7890', 'Mastercard', '2028-11-30', 10),
+('Carla Rodrigues', '6789 0123 4567 8901', 'Visa', '2027-08-31', 11),
+('Diego Nascimento', '7890 1234 5678 9012', 'Mastercard', '2029-01-31', 12),
+('Fernanda Barbosa', '8901 2345 6789 0123', 'Elo', '2026-12-31', 13);
 
 -- 9. PAGAMENTOS
 INSERT INTO Pagamento (Metodo_Pagamento, Data, Valor, Status) VALUES
 ('cartao', '2024-01-15', 2499.99, 'aprovado'),
 ('pix', '2024-01-20', 89.99, 'aprovado'),
-('boleto', '2024-02-01', 3299.99, 'pendente'),
+('boleto', '2024-02-01', 3599.98, 'aprovado'),
 ('cartao', '2024-02-10', 299.99, 'aprovado'),
-('pix', '2024-02-15', 1299.99, 'aprovado'),
+('pix', '2024-02-15', 1599.97, 'aprovado'),
 ('cartao', '2024-03-01', 119.99, 'aprovado'),
-('boleto', '2024-03-05', 899.99, 'aprovado'),
+('boleto', '2024-03-05', 1299.98, 'aprovado'),
 ('pix', '2024-03-10', 29.99, 'aprovado'),
-('cartao', '2024-03-15', 1199.99, 'aprovado'),
-('boleto', '2024-03-20', 449.99, 'pendente');
+('cartao', '2024-03-15', 1499.98, 'aprovado'),
+('boleto', '2024-03-20', 449.99, 'pendente'),
+('cartao', '2024-04-01', 199.99, 'aprovado'),
+('pix', '2024-04-05', 2999.96, 'aprovado'),
+('cartao', '2024-04-10', 89.99, 'aprovado'),
+('boleto', '2024-04-15', 599.99, 'pendente'),
+('pix', '2024-04-20', 149.99, 'aprovado');
 
 -- 10. DETALHES DOS PAGAMENTOS
 -- Pagamentos com Cartão
 INSERT INTO PagamentoCartao (ID_Pagamento, ID_Cartao) VALUES
-(1, 1), (4, 2), (6, 3), (9, 4);
+(1, 1), (4, 2), (6, 3), (9, 4), (11, 5), (13, 6);
 
 -- Pagamentos PIX
 INSERT INTO PagamentoPix (ID_Pagamento, ChavePix, Instituicao) VALUES
 (2, 'lucas.almeida@email.com', 'Banco do Brasil'),
 (5, '11321098765', 'Nubank'),
-(8, 'rafael.martins@email.com', 'Itaú');
+(8, 'rafael.martins@email.com', 'Itaú'),
+(12, 'carla.rodrigues@email.com', 'Bradesco'),
+(15, '11543210986', 'Inter');
 
 -- Pagamentos Boleto
 INSERT INTO PagamentoBoleto (ID_Pagamento, Codigo_Barras, Vencimento) VALUES
 (3, '34191790010104351004791020150008291070026000', '2024-02-08'),
 (7, '34191790010104351004791020150008291070027000', '2024-03-12'),
-(10, '34191790010104351004791020150008291070028000', '2024-03-27');
+(10, '34191790010104351004791020150008291070028000', '2024-03-27'),
+(14, '34191790010104351004791020150008291070029000', '2024-04-22');
 
 -- 11. PEDIDOS
 INSERT INTO Pedido (Data, Status, ID_Comprador, ID_Endereco, ID_Pagamento) VALUES
 ('2024-01-15', 'entregue', 6, 1, 1),
 ('2024-01-20', 'entregue', 7, 3, 2),
-('2024-02-01', 'processando', 8, 5, 3),
-('2024-02-10', 'enviado', 9, 7, 4),
+('2024-02-01', 'entregue', 8, 5, 3),
+('2024-02-10', 'entregue', 9, 7, 4),
 ('2024-02-15', 'entregue', 10, 8, 5),
 ('2024-03-01', 'entregue', 11, 9, 6),
 ('2024-03-05', 'entregue', 12, 10, 7),
-('2024-03-10', 'enviado', 13, 11, 8),
-('2024-03-15', 'processando', 14, 12, 9),
-('2024-03-20', 'pendente', 15, 13, 10);
+('2024-03-10', 'entregue', 13, 11, 8),
+('2024-03-15', 'entregue', 14, 12, 9),
+('2024-03-20', 'pendente', 15, 13, 10),
+('2024-04-01', 'entregue', 6, 2, 11),
+('2024-04-05', 'entregue', 7, 4, 12),
+('2024-04-10', 'enviado', 8, 6, 13),
+('2024-04-15', 'pendente', 9, 7, 14),
+('2024-04-20', 'processando', 10, 8, 15);
 
 -- 12. ITENS DOS PEDIDOS
 INSERT INTO ItemDoPedido (ID_Pedido, ID_Produto, Quantidade, PrecoNaCompra) VALUES
@@ -179,7 +195,7 @@ INSERT INTO ItemDoPedido (ID_Pedido, ID_Produto, Quantidade, PrecoNaCompra) VALU
 (3, 3, 1, 299.99),
 -- Pedido 4: Fone Bluetooth
 (4, 3, 1, 299.99),
--- Pedido 5: Sofá + Luminária
+-- Pedido 5: Sofá + Luminária (2 unidades)
 (5, 9, 1, 1299.99),
 (5, 11, 2, 149.99),
 -- Pedido 6: Calça Jeans
@@ -193,17 +209,34 @@ INSERT INTO ItemDoPedido (ID_Pedido, ID_Produto, Quantidade, PrecoNaCompra) VALU
 (9, 17, 1, 1199.99),
 (9, 19, 1, 299.99),
 -- Pedido 10: Raquete de Tênis
-(10, 20, 1, 449.99);
+(10, 20, 1, 449.99),
+-- Pedido 11: Harry Potter Coleção
+(11, 15, 1, 199.99),
+-- Pedido 12: Smartwatch + Vestido + Blusa
+(12, 4, 1, 1899.99),
+(12, 5, 1, 89.99),
+(12, 6, 2, 69.99),
+-- Pedido 13: Livro Python
+(13, 16, 1, 89.99),
+-- Pedido 14: Kit Musculação
+(14, 18, 1, 599.99),
+-- Pedido 15: Luminária
+(15, 11, 1, 149.99);
 
 -- 13. AVALIAÇÕES
-INSERT INTO Avaliacao (Nota, Comentario, Data, ID_Produto, ID_Comprador) VALUES
-(5, 'Excelente smartphone! Muito rápido e boa qualidade de câmera.', '2024-01-20', 1, 6),
-(4, 'Vestido bonito, tecido bom, mas a cor é um pouco diferente da foto.', '2024-01-25', 5, 7),
-(5, 'Notebook perfeito para trabalho! Recomendo muito.', '2024-02-15', 2, 8),
-(5, 'Som excelente, bateria dura bastante. Vale cada centavo!', '2024-02-20', 3, 9),
-(4, 'Sofá confortável, entrega rápida. Apenas o tecido poderia ser melhor.', '2024-02-25', 9, 10),
-(3, 'Calça boa mas ficou um pouco apertada. Talvez seja o modelo.', '2024-03-10', 7, 11),
-(5, 'Mesa linda e muito resistente! Família toda adorou.', '2024-03-15', 10, 12),
-(5, 'Livro clássico em ótima edição. Chegou em perfeito estado.', '2024-03-20', 13, 13),
-(4, 'Bicicleta boa para o preço, mas poderia vir com mais acessórios.', '2024-03-25', 17, 14),
-(5, 'Raquete profissional mesmo! Melhorou muito meu jogo.', '2024-03-30', 20, 15);
+INSERT INTO Avaliacao (Nota, Comentario, Data, ID_Pedido) VALUES
+(5, 'Excelente smartphone! Muito rápido e boa qualidade de câmera.', '2024-01-20', 1),
+(4, 'Vestido bonito, tecido bom, mas a cor é um pouco diferente da foto.', '2024-01-25', 2),
+(5, 'Notebook perfeito para trabalho! Recomendo muito.', '2024-02-15', 3),
+(5, 'Som excelente, bateria dura bastante. Vale cada centavo!', '2024-02-20', 4),
+(4, 'Sofá confortável, entrega rápida. Apenas o tecido poderia ser melhor.', '2024-02-25', 5),
+(3, 'Calça boa mas ficou um pouco apertada. Talvez seja o modelo.', '2024-03-10', 6),
+(5, 'Mesa linda e muito resistente! Família toda adorou.', '2024-03-15', 7),
+(5, 'Livro clássico em ótima edição. Chegou em perfeito estado.', '2024-03-20', 8),
+(4, 'Bicicleta boa para o preço, mas poderia vir com mais acessórios.', '2024-03-25', 9),
+(5, 'Raquete profissional mesmo! Melhorou muito meu jogo.', '2024-03-30', 10),
+(5, 'Coleção completa do Harry Potter! Meus filhos adoraram.', '2024-04-05', 11),
+(4, 'Smartwatch incrível, mas o preço é um pouco salgado.', '2024-04-10', 12),
+(3, 'Livro bom para iniciantes, mas esperava mais exemplos práticos.', '2024-04-15', 13),
+(5, 'Kit completo e de qualidade! Treino em casa agora.', '2024-04-20', 14),
+(4, 'Luminária bonita e funcional, ilumina bem o ambiente.', '2024-04-25', 15);
